@@ -32,22 +32,23 @@ package
             addChild(background);
 			
 			//Inserting the Headline
-			var headline:TextField = new TextField(1280, 80, "Welcome to SHOOT THE FUCKING BIRDS!!!");
-			headline.fontSize = 50;
+			var headline:TextField = new TextField(1280, 180, "Welcome to Shoot the Fucking Birds !!!", "AngryNerd");
+			headline.fontSize = 90;
+			headline.y = 80;
 			addChild(headline);
+		
 			
-			//Adding the EventListenter to the Stage
-			addEventListener(starling.events.Event.ADDED_TO_STAGE, onAdded);
-			
-			//ADding the StartButton To Do: Write Button Class
+			//Adding the StartButton To Do: Write Button Class
 			var buttonTexture:Texture = Assets.getTexture("ButtonBig");
 			var button:Button = new Button(buttonTexture, "Start");
+			button.fontName = "AngryNerd";
 			button.scaleX = 0.5;
 			button.scaleY = 0.5;
 			button.x = background.width / 2  -175;
 			button.y = background.height / 2 -50;
-			button.fontSize = 60;
+			button.fontSize = 80;
 			button.fontBold = true;
+			button.fontColor = 0xffffff;
 			addChild(button);
 			
 			//Adding the Player Marker
@@ -55,6 +56,9 @@ package
 			player.y = background.height/2;
 			addChild(player);
 			
+			
+			//Adding the EventListenter to the Stage
+			addEventListener(starling.events.Event.ADDED_TO_STAGE, onAdded);
 		}
 		
 		//Tracking Touches

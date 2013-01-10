@@ -17,7 +17,7 @@ package
 	public class Assets 
 	{
 		//Font for the game 
-		[Embed(source = "../assets/fonts/AngryNerds.ttf", embedAsCFF="false", fontFamily="Nerd")]
+		[Embed(source = "../assets/fonts/AngryNerds.ttf", embedAsCFF="false", fontFamily="AngryNerd")]
         public static const NerdFont:Class;
 		
 		//Will be used as Targets in the game
