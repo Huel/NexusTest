@@ -26,15 +26,15 @@ package
 		
 		//Will be used as Player in the game
 		[Embed(source = "../assets/texture/crosshairs.png")]
-        public static const Player:Class;
+        public static const Crosshairs:Class;
 		
 		//Will be used as Background in the game
 		[Embed(source = "../assets/texture/background.jpg")]
         public static const Background:Class;
 		
 		//StartButton
-		[Embed(source = "../assets/texture/buttonStart.png")]
-        public static const StartButton:Class;
+		[Embed(source = "../assets/texture/ButtonBig.png")]
+        public static const ButtonBig:Class;
 		
 		//Texture cache
 		private static var sContentScaleFactor:int = 1;
