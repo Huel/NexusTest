@@ -16,7 +16,7 @@ AIR for Android instructions
 
 	(!) wait a minute before packaging.
 
-
+a
 3. Build from FlashDevelop as usual (F8)
 
 

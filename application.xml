@@ -50,6 +50,7 @@
 		<content>NexusTest.swf</content>
 		<visible>true</visible>
 		<fullScreen>true</fullScreen>
+		<aspectRatio>landscape</aspectRatio>
 		<!--<autoOrients>false</autoOrients>-->
 		<!--<aspectRatio>landscape</aspectRatio>-->
 		<renderMode>direct</renderMode>
