@@ -19,8 +19,15 @@ package
 		public function Game() 
 		{
 			
+			var background:Image = new Image(Assets.getTexture("Background"));
+            background.blendMode = BlendMode.NONE;
+			background.scaleX = 2.0;
+			background.scaleY = 2.0;
+            addChild(background);
+			
 			var textField:TextField = new TextField(800, 50, "Welcome to SHOOT THE FUCKING BIRDS!");
 			addChild(textField);
+			
 			
 			
 			

@@ -8,6 +8,7 @@ package
 	import flash.ui.Multitouch;
 	import flash.ui.MultitouchInputMode;
 	import starling.core.Starling;
+	import starling.display.Button
 	
 	/**
 	 * ...

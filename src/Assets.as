@@ -32,6 +32,10 @@ package
 		[Embed(source = "../assets/texture/background.jpg")]
         public static const Background:Class;
 		
+		//StartButton
+		[Embed(source = "../assets/texture/buttonStart.png")]
+        public static const StartButton:Class;
+		
 		//Texture cache
 		private static var sContentScaleFactor:int = 1;
         private static var sTextures:Dictionary = new Dictionary();
