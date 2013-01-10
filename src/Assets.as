@@ -5,6 +5,7 @@ package
     import flash.media.Sound;
     import flash.utils.ByteArray;
     import flash.utils.Dictionary;
+	
     
     import starling.text.BitmapFont;
     import starling.text.TextField;
@@ -36,11 +37,17 @@ package
 		[Embed(source = "../assets/texture/ButtonBig.png")]
         public static const ButtonBig:Class;
 		
+		//Sound for Player
+		[Embed(source="../assets/audio/shot.mp3")]
+        private static const PlayerSound:Class;
+		
+		
 		//Texture cache
 		private static var sContentScaleFactor:int = 1;
         private static var sTextures:Dictionary = new Dictionary();
         private static var sTextureAtlas:TextureAtlas;
         private static var sBitmapFontsLoaded:Boolean;
+		private static var sSounds:Dictionary = new Dictionary();
 		
 		
 		//This sets the single Frames of an Animation-Sprite and stores it in the atlas?
@@ -71,6 +78,22 @@ package
 			return atlas;
 			
 		}
+		
+		//Prepares the Sounds for the game
+		public static function getSound(name:String):Sound
+        {
+            var sound:Sound = sSounds[name] as Sound;
+            if (sound) return sound;
+            else throw new ArgumentError("Sound not found: " + name);
+        }
+		
+		   public static function prepareSounds():void
+        {
+            sSounds["PlayerSound"] = new PlayerSound();   
+        }
+        
+		
+		
 		//Gets the texture from files (Target,Player, etc..) 
 		 public static function getTexture(name:String):Texture
         {
@@ -82,6 +105,7 @@ package
                     sTextures[name] = Texture.fromBitmap(data as Bitmap, true, false, sContentScaleFactor);
                 else if (data is ByteArray)
                     sTextures[name] = Texture.fromAtfData(data as ByteArray, sContentScaleFactor);
+				else throw new ArgumentError("Texure not found: " + name);	
             }
             
             return sTextures[name];

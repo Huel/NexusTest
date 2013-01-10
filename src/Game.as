@@ -14,7 +14,10 @@ package
 	import starling.events.TouchPhase;
 	import starling.events.Event;
 	import flash.geom.Point;
+	
 	import starling.display.Button;
+	import flash.media.Sound;
+	import starling.display.MovieClip;
 	
 	/**
 	 * ...
@@ -23,9 +26,15 @@ package
 	public class Game extends Sprite
 	{
 		var player:Player = new Player();
+		Assets.prepareSounds();
+		var shotSound:Sound = Assets.getSound("PlayerSound"); //Needed for every movement of the Player
+		
 		
 		public function Game() 
 		{
+			 // load general assets
+			
+			
 			//Inserting the Background 
 			var background:Image = new Image(Assets.getTexture("Background"));
             background.blendMode = BlendMode.NONE;
@@ -53,8 +62,9 @@ package
 			
 			//Adding the Player Marker
 			player.x = background.width/2; //TO DO: Should be set by the Stage 
-			player.y = background.height/2;
+			player.y = background.height / 2;
 			addChild(player);
+			
 			
 			
 			//Adding the EventListenter to the Stage
@@ -75,9 +85,9 @@ package
 			
 			var pos:Point = touch.getLocation(stage);
 			
-			
 			player.x = pos.x;
-			player.y = pos.y;	
+			player.y = pos.y;
+			shotSound.play(0, 0);
 		
 		}
 		
