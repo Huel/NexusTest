@@ -6,6 +6,7 @@ package
 	import starling.textures.Texture;
 	import starling.display.Image;
 	import starling.core.Starling;
+	import PixelLightFilter;
 
 	
 	
@@ -20,7 +21,7 @@ package
 		{
 			var Crosshairs:Image = new Image(Assets.getTexture("Crosshairs"));
 			Crosshairs.x = -Crosshairs.width/2;
-            Crosshairs.y = -Crosshairs.height/2;
+            Crosshairs.y = -Crosshairs.height / 2;
 			addChild(Crosshairs);
 			
 		}

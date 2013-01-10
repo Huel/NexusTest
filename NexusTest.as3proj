@@ -16,7 +16,7 @@
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
     <class path="src" />
-    <class path="..\PrimaryFeather-Starling-Framework-2a42a8e\starling\src" />
+    <class path="..\Flash\Starling\starling\src" />
   </classpaths>
   <!-- Build options -->
   <build>

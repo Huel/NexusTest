@@ -19,15 +19,17 @@ package
 	import flash.media.Sound;
 	import starling.display.MovieClip;
 	
+	import PixelLightFilter;
 	/**
 	 * ...
 	 * @author Huel
 	 */
-	public class Game extends Sprite
+	public class Game extends starling.display.Sprite
 	{
 		var player:Player = new Player();
 		Assets.prepareSounds();
 		var shotSound:Sound = Assets.getSound("PlayerSound"); //Needed for every movement of the Player
+
 		
 		
 		public function Game() 
@@ -38,12 +40,14 @@ package
 			//Inserting the Background 
 			var background:Image = new Image(Assets.getTexture("Background"));
             background.blendMode = BlendMode.NONE;
+			//background.filter = new PixelLightFilter();
             addChild(background);
 			
 			//Inserting the Headline
 			var headline:TextField = new TextField(1280, 180, "Welcome to Shoot the Fucking Birds !!!", "AngryNerd");
-			headline.fontSize = 90;
+			headline.fontSize = 70;
 			headline.y = 80;
+			headline.filter = new PixelLightFilter();
 			addChild(headline);
 		
 			
@@ -58,11 +62,15 @@ package
 			button.fontSize = 80;
 			button.fontBold = true;
 			button.fontColor = 0xffffff;
+			button.filter = new PixelLightFilter();
 			addChild(button);
 			
 			//Adding the Player Marker
 			player.x = background.width/2; //TO DO: Should be set by the Stage 
 			player.y = background.height / 2;
+			//player.filter = new PixelLightFilter();
+			PixelLightFilter.mLightPos.x = player.x;
+			PixelLightFilter.mLightPos.y = player.y;
 			addChild(player);
 			
 			
@@ -87,6 +95,8 @@ package
 			
 			player.x = pos.x;
 			player.y = pos.y;
+			PixelLightFilter.mLightPos.x = player.x;
+			PixelLightFilter.mLightPos.y = player.y;
 			shotSound.play(0, 0);
 		
 		}
