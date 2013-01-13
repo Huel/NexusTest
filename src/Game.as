@@ -75,7 +75,7 @@ package
 			var target:Target = new Target(80,250)
 			addChild(target);
 			
-			while ( targetArray.length < 30)
+			while ( targetArray.length < 50)
 			{
 				
 				var target:Target = new Target(Math.random()*1280,Math.random()*800);

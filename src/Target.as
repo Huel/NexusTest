@@ -35,37 +35,7 @@ package
             TargetClip.y = y - int(TargetClip.height / 2);
 			
 			Starling.juggler.add(TargetClip);
-			
-			/*
-			//Moving Target
-			 targetTransitions 	= [Transitions.LINEAR, Transitions.EASE_OUT, Transitions.EASE_IN_OUT,
-								Transitions.EASE_OUT_BACK, Transitions.EASE_OUT_BOUNCE,
-								Transitions.EASE_OUT_ELASTIC];
-			
-			var transition:String = targetTransitions.shift();
-			targetTransitions.push(transition);
-			var targetTween:Tween = new Tween (TargetClip, 10, transition);
-			
-			targetTween.moveTo(x+Math.random()*movementX, y+Math.random()*movementY);
-			targetTween.scaleTo(1.0);
-			Starling.juggler.add(targetTween);
-			
-			targetTween.onComplete = function():void 
-			{ 
-				trace("Tween Done");
 		
-				if (TargetClip.x < 2000)
-				{
-					trace("Target turned");
-					TargetClip.scaleX = -1.0;
-					var newTargetTween:Tween = new Tween (TargetClip, 10, transition);
-					newTargetTween.moveTo(x, y);
-					Starling.juggler.add(newTargetTween);
-				}
-				
-			};
-			
-			*/
 		}
 		
 		public function moveTarget(x:int,y:int):void
@@ -93,16 +63,9 @@ package
 			
 			targetTween.onComplete = function():void 
 			{ 
-				trace("Tween Done");
-		
-				if (TargetClip.x < 2000)
-				{
-					trace("Target turned");
-					TargetClip.scaleX = -1.0;
-					var newTargetTween:Tween = new Tween (TargetClip, 10, transition);
-					newTargetTween.moveTo(x, y);
-					Starling.juggler.add(newTargetTween);
-				}
+				tweenTargetX = Math.random() * movementX;
+				tweenTargetY = Math.random() * movementY;
+				moveTarget(tweenTargetX, tweenTargetY);
 				
 			};
 			
