@@ -27,8 +27,9 @@ package
 	public class Game extends starling.display.Sprite
 	{
 		var player:Player = new Player();
+		var targetArray:Array = [];
 		Assets.prepareSounds();
-		var shotSound:Sound = Assets.getSound("PlayerSound"); //Needed for every movement of the Player
+		var shotSound:Sound = Assets.getSound("PlayerSound");
 
 		
 		
@@ -47,7 +48,7 @@ package
 			var headline:TextField = new TextField(1280, 180, "Welcome to Shoot the Fucking Birds !!!", "AngryNerd");
 			headline.fontSize = 70;
 			headline.y = 80;
-			headline.filter = new PixelLightFilter();
+			//headline.filter = new PixelLightFilter();
 			addChild(headline);
 		
 			
@@ -62,17 +63,34 @@ package
 			button.fontSize = 80;
 			button.fontBold = true;
 			button.fontColor = 0xffffff;
-			button.filter = new PixelLightFilter();
+			//button.filter = new PixelLightFilter();
 			addChild(button);
+			
+			//Adding Targets to the Screen
+			var target:Target = new Target(200,150)
+			addChild(target);
+			
+			while ( targetArray.length < 30)
+			{
+				
+				var target:Target = new Target(Math.random()*1280,Math.random()*800);
+				addChild(target);
+				targetArray.push(target);
+				addChild(target);
+			
+			}
 			
 			//Adding the Player Marker
 			player.x = background.width/2; //TO DO: Should be set by the Stage 
 			player.y = background.height / 2;
+			
+			
+			
+			
 			//player.filter = new PixelLightFilter();
 			PixelLightFilter.mLightPos.x = player.x;
 			PixelLightFilter.mLightPos.y = player.y;
 			addChild(player);
-			
 			
 			
 			//Adding the EventListenter to the Stage

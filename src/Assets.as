@@ -37,6 +37,14 @@ package
 		[Embed(source = "../assets/texture/ButtonBig.png")]
         public static const ButtonBig:Class;
 		
+		//Enemies in the game
+		[Embed(source = "../assets/texture/atlas.png")]
+        public static const TargetTexture:Class;
+		
+		//Atlas for the Enemy animation
+		[Embed(source="../assets/texture/atlas.xml", mimeType="application/octet-stream")]
+        public static const TargetXml:Class;
+		
 		//Sound for Player
 		[Embed(source="../assets/audio/shot.mp3")]
         private static const PlayerSound:Class;
@@ -115,8 +123,8 @@ package
         {
             if (sTextureAtlas == null)
             {
-                var texture:Texture = getTexture("AtlasTexture");
-                var xml:XML = XML(create("AtlasXml"));
+                var texture:Texture = getTexture("TargetTexture");
+                var xml:XML = XML(create("TargetXml"));
                 sTextureAtlas = new TextureAtlas(texture, xml);
             }
             

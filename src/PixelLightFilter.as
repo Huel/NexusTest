@@ -83,11 +83,11 @@ package
 				"mul ft0.xyz, ft0.xyz, ft4.x					     \n" +
 				"mov oc, ft0                                         \n" ;  // copy to output
                
-            mShaderProgram = assembleAgal(fragmentProgramCode,vertexProgramCode);
-        }
+            mShaderProgram = assembleAgal(fragmentProgramCode, vertexProgramCode);
+		}
 
         protected override function activate(pass:int, context:Context3D, texture:Texture):void
-        {
+		{
 			var vLP:Vector3D=mCurSupport.mvpMatrix3D.transformVector(mLightPos);
 			sTmpPoint[0] = vLP.x;
 			sTmpPoint[1] = vLP.y;
