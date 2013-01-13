@@ -74,7 +74,7 @@ package
 			//Adding Targets to the Screen
 			var target:Target = new Target(80,250)
 			addChild(target);
-			/*
+			
 			while ( targetArray.length < 30)
 			{
 				
@@ -82,9 +82,9 @@ package
 				addChild(target);
 				targetArray.push(target);
 				addChild(target);
+				target.moveTarget(Math.random()*1280,Math.random()*800);
 			
 			}
-			*/
 			
 			//Adding the Player Marker
 			player.x = background.width/2; //TO DO: Should be set by the Stage 
