@@ -19,6 +19,10 @@ package
 	import flash.media.Sound;
 	import starling.display.MovieClip;
 	
+	import starling.animation.Transitions;
+    import starling.animation.Tween;
+	
+	
 	import PixelLightFilter;
 	/**
 	 * ...
@@ -30,6 +34,7 @@ package
 		var targetArray:Array = [];
 		Assets.prepareSounds();
 		var shotSound:Sound = Assets.getSound("PlayerSound");
+		
 
 		
 		
@@ -67,9 +72,9 @@ package
 			addChild(button);
 			
 			//Adding Targets to the Screen
-			var target:Target = new Target(200,150)
+			var target:Target = new Target(80,250)
 			addChild(target);
-			
+			/*
 			while ( targetArray.length < 30)
 			{
 				
@@ -79,6 +84,7 @@ package
 				addChild(target);
 			
 			}
+			*/
 			
 			//Adding the Player Marker
 			player.x = background.width/2; //TO DO: Should be set by the Stage 
