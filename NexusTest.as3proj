@@ -17,6 +17,7 @@
   <classpaths>
     <class path="src" />
     <class path="..\Flash\Starling\starling\src" />
+    <class path="..\Flash\PrimaryFeather-Starling-Extension-Particle-System\src" />
   </classpaths>
   <!-- Build options -->
   <build>

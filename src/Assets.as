@@ -11,6 +11,9 @@ package
     import starling.text.TextField;
     import starling.textures.Texture;
     import starling.textures.TextureAtlas;
+	
+	import starling.extensions.PDParticleSystem;
+    import starling.extensions.ParticleSystem;
 	/**
 	 * This class manages all our Assets
 	 * @author Huel
@@ -49,6 +52,16 @@ package
 		[Embed(source="../assets/audio/shot.mp3")]
         private static const PlayerSound:Class;
 		
+		//Particle Texture
+		[Embed(source = "../assets/particle/drugs_particle.png")]
+        private static const DrugsParticle:Class;
+		
+		//Particle Config
+		[Embed(source="../assets/particle/drugs.pex", mimeType="application/octet-stream")]
+        private static const DrugsConfig:Class;
+		
+		
+		
 		
 		//Texture cache
 		private static var sContentScaleFactor:int = 1;
@@ -56,6 +69,8 @@ package
         private static var sTextureAtlas:TextureAtlas;
         private static var sBitmapFontsLoaded:Boolean;
 		private static var sSounds:Dictionary = new Dictionary();
+		private var mParticleSystems:Vector.<ParticleSystem>;
+        private var mParticleSystem:ParticleSystem;
 		
 		
 		//This sets the single Frames of an Animation-Sprite and stores it in the atlas?
@@ -118,6 +133,18 @@ package
             
             return sTextures[name];
         }
+		
+		public static function getXML(name:String):XML
+		{
+			if (XML[name] == undefined)
+			{
+					XML[name] = XML(create(name));
+					trace("XML created");
+			}
+				else throw new ArgumentError("XML not created: " + name);
+				
+			return XML[name];
+		}
 		
 		public static function getTextureAtlas():TextureAtlas
         {

@@ -22,6 +22,10 @@ package
 	import starling.animation.Transitions;
     import starling.animation.Tween;
 	
+	import starling.extensions.PDParticleSystem;
+    import starling.extensions.ParticleSystem;
+	
+	
 	
 	import PixelLightFilter;
 	/**
@@ -34,6 +38,7 @@ package
 		var targetArray:Array = [];
 		Assets.prepareSounds();
 		var shotSound:Sound = Assets.getSound("PlayerSound");
+		var particle:ParticleManager = new ParticleManager();
 		
 
 		
@@ -89,14 +94,11 @@ package
 			//Adding the Player Marker
 			player.x = background.width/2; //TO DO: Should be set by the Stage 
 			player.y = background.height / 2;
-			
-			
-			
-			
 			//player.filter = new PixelLightFilter();
 			PixelLightFilter.mLightPos.x = player.x;
 			PixelLightFilter.mLightPos.y = player.y;
 			addChild(player);
+			addChild(particle);
 			
 			
 			//Adding the EventListenter to the Stage
@@ -112,13 +114,17 @@ package
 		//Reacting to Touches
 		private function onTouch(e:TouchEvent):void
 		{
-			var touch:Touch = e.getTouch(stage, TouchPhase.BEGAN);
+			//var touch:Touch = e.getTouch(stage, TouchPhase.BEGAN);
+			var touch:Touch = e.getTouch(stage, TouchPhase.MOVED);
+		
 			if (touch == null) return;
+		
 			
 			var pos:Point = touch.getLocation(stage);
-			
+			if (pos == null) return;
 			player.x = pos.x;
 			player.y = pos.y;
+			particle.startParticleSystem(player.x, player.y);
 			PixelLightFilter.mLightPos.x = player.x;
 			PixelLightFilter.mLightPos.y = player.y;
 			shotSound.play(0, 0);
